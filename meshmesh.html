@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(#ffe4f1, #fff7fb);
+      font-family: "Courier New", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      color: #5b2333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 430px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 4px solid #ff8fbd;
+      box-shadow: 8px 8px 0 #ffb6d5;
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .pixel-heart {
+      display: grid;
+      grid-template-columns: repeat(9, 18px);
+      grid-template-rows: repeat(8, 18px);
+      gap: 2px;
+      justify-content: center;
+      margin: 20px auto;
+      animation: bounce 1.2s infinite;
+    }
+
+    .pixel {
+      width: 18px;
+      height: 18px;
+      background: transparent;
+    }
+
+    .red {
+      background: #ff3f7f;
+      box-shadow: inset -3px -3px 0 #d91f5c;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    button {
+      margin-top: 16px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #ff6fae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 4px 4px 0 #c94f83;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0 #c94f83;
+    }
+
+    .letter {
+      margin-top: 18px;
+      font-size: 1rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      min-height: 180px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 24px;
+      animation: float 4s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    .star:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+    .star:nth-child(2) { top: 20%; right: 12%; animation-delay: 1s; }
+    .star:nth-child(3) { bottom: 15%; left: 10%; animation-delay: 2s; }
+    .star:nth-child(4) { bottom: 20%; right: 16%; animation-delay: 1.5s; }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-18px) rotate(10deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="star">✨</div>
+  <div class="star">💖</div>
+  <div class="star">🌷</div>
+  <div class="star">✨</div>
+
+  <div class="container">
+    <h1>For Meshmesh 💌</h1>
+
+    <div class="pixel-heart">
+      <div class="pixel"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel"></div>
+      <div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div>
+      <div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div>
+      <div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div>
+      <div class="pixel"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel"></div>
+      <div class="pixel"></div><div class="pixel"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel"></div><div class="pixel"></div>
+      <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel red"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+      <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel red"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    </div>
+
+    <button onclick="showLetter()">Tap to open 💗</button>
+
+    <p id="letter" class="letter hidden"></p>
+  </div>
+
+  <script>
+    const message = `My love,
+
+I made this little pixel heart for you because somehow normal words did not feel cute enough.
+
+You are my safe space, my world , my baby girl , my princess , an angel walking on earth.
+
+I love the way you light up my days, the way you care, the way you laugh, and the way being with makes me feel safe.
+
+No matter how simple this little page is, every piece of it is here to say one thing:
+
+I love you so so so muchhh.💖`;
+
+    let i = 0;
+
+    function showLetter() {
+      const letter = document.getElementById("letter");
+      letter.classList.remove("hidden");
+      letter.textContent = "";
+
+      i = 0;
+
+      function type() {
+        if (i < message.length) {
+          letter.textContent += message.charAt(i);
+          i++;
+          setTimeout(type, 35);
+        }
+      }
+
+      type();
+    }
+  </script>
+</body>
+</html>
